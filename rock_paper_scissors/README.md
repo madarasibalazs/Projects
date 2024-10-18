@@ -58,7 +58,7 @@ If there is any problem, please create an issue and I will check it out as soon 
 
 ## Authors
 
-* Balazs Csaba Madarasi @madarasibalazs
+* Balazs Csaba Madarasi [@madarasibalazs](https://github.com/madarasibalazs)
 
 ## Acknowledgments
 
