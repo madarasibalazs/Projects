@@ -63,6 +63,6 @@ If there is any problem, please create an issue and I will check it out as soon 
 ## Acknowledgments
 
 Inspiration, code snippets, etc.
-* Initial game idea: https://www.youtube.com/watch?v=jaVNP3nIAv0&t=8s
-* ReadMe template from: https://gist.github.com/DomPizzie/7a5ff55ffa9081f2de27c315f5018afc
+* Initial game idea can be found [here](https://www.youtube.com/watch?v=jaVNP3nIAv0&t=8s)
+* ReadMe template from [DomPizzie](https://gist.github.com/DomPizzie/7a5ff55ffa9081f2de27c315f5018afc)
 * Fonts by [Google Fonts](https://fonts.google.com/)
