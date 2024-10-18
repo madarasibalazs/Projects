@@ -1,0 +1,350 @@
+@import url("https://fonts.googleapis.com/css?family=Asap:400,500,700");
+
+:root {
+    --bg-color: #292C34;
+    --text-color: white;
+    --button-bg: #E2584D;
+    --button-hover-bg: #00aaff;
+    --header-bg-color: white;
+    --header-text-color: #24272E;
+    --scoreboard-border-color: white;
+    --scoreboard-text-color: white;
+    --badge-bg: #E2584D;
+    --choice-bg-hover: #1B1F25;
+    --close-hover-color: #E2584D;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+button {
+    background-color: var(--button-bg);
+    color: var(--text-color);
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: var(--button-hover-bg);
+}
+
+body.light-theme {
+    --bg-color: white;
+    --text-color: black;
+    --button-bg: #00aaff;
+    --button-hover-bg: #FF5F5F;
+    --header-bg-color: #F0F0F0;
+    --header-text-color: black;
+    --scoreboard-border-color: black;
+    --scoreboard-text-color: black;
+    --badge-bg: #00aaff;
+    --choice-bg-hover: #E5E5E5;
+    --close-hover-color: #00aaff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+}
+
+header {
+    background-color: var(--header-bg-color);
+    padding: 20px;
+}
+
+header > h1 {
+    color: var(--header-text-color);
+    text-align: center;
+    font-family: Asap, sans-serif;
+}
+
+.badge {
+    background-color: var(--badge-bg);
+    color: white;
+    font-size: 14px;
+    padding: 2px 10px;
+    font-family: Asap, sans-serif;
+}
+
+.result {
+    font-size: 40px;
+    color: var(--text-color);
+}
+
+.result > p {
+    text-align: center;
+    font-weight: bold;
+    font-family: Asap, sans-serif;
+}
+
+.choices {
+    margin-top: 50px;
+    text-align: center;
+}
+
+.choice {
+    border: 4px solid var(--scoreboard-border-color);
+    border-radius: 50%;
+    margin: 0 20px;
+    padding: 20px;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+.choice:hover {
+    cursor: pointer;
+    background: var(--choice-bg-hover);
+}
+
+#action-message {
+    text-align: center;
+    color: var(--text-color);
+    font-family: Asap, sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+.green-glow {
+    border: 4px solid #4DCC7D;
+    box-shadow: 0 0 10px #31B43A;
+}
+
+.red-glow {
+    border: 4px solid #FC121B;
+    box-shadow: 0 0 10px #D01115;
+}
+
+.gray-glow {
+    border: 4px solid #464647;
+    box-shadow: 0 0 10px #25292B;
+}
+
+#reset-button {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    font-family: Asap, sans-serif;
+    font-size: 16px;
+    background-color: var(--button-bg);
+    color: var(--text-color);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#reset-button:hover {
+    background-color: var(--button-hover-bg);
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content > h2 {
+    font-size: 26px;
+    padding-bottom: 15px;
+}
+
+.modal-content {
+    background-color: white;
+    color: black;
+    margin: 15% auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 400px;
+    text-align: center;
+    font-family: Asap, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.modal-content button {
+    width: 80%;
+    margin: 5px 0;
+    padding: 5px 10px;
+    font-size: 16px;
+    font-family: Asap, sans-serif;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover, .close:focus {
+    color: var(--close-hover-color);
+    cursor: pointer;
+}
+
+#settings-icon {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+#settings-icon img {
+    width: 40px;
+    height: 40px;
+}
+
+#settings-icon:hover img {
+    opacity: 0.8;
+}
+
+#mute-toggle {
+    transition: background-color 0.3s ease;
+    padding: 10px 20px;
+}
+
+#mute-toggle:hover {
+    background-color: var(--button-hover-bg);
+}
+
+#theme-toggle {
+    transition: background-color 0.3s ease;
+    padding: 10px 20px;
+}
+
+#theme-toggle:hover {
+    background-color: var(--button-hover-bg);
+}
+
+.achievements-box {
+    border: 2px solid var(--text-color);
+    padding: 25px;
+    width: 250px;
+    background-color: rgba(0, 0, 139, 0.1);
+    border-radius: 8px;
+    margin-right: 20px;
+    position: fixed;
+    top: 100px;
+    left: 20px;
+    align-self: flex-start;
+}
+
+.achievements-list ul {
+    list-style-type: none;
+    padding-left: 10px;
+}
+
+.achievements-list li {
+    padding: 10px 5px;
+    font-size: 14px;
+    list-style-type: circle;
+}
+
+.achievements-list li.unlocked {
+    color: #FFD700;
+    font-weight: bold;
+}
+
+.achievement-popup {
+    position: fixed;
+    top: 60%;
+    left: 50%;
+    font-size: 20px;
+    transform: translate(-50%, -50%);
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    animation: fadeIn 0.5s, fadeOut 0.5s 3s forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+.achievements-box > h2 {
+    text-align: center;
+    padding: 0 10px 10px;
+}
+
+.achievements-box > h3 {
+    text-align: center;
+    padding: 10px;
+}
+
+.score-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto;
+    width: 90%;
+    max-width: 700px;
+    position: relative;
+    gap: 20px;
+}
+
+
+#winning-streak {
+    font-size: 18px;
+    color: var(--text-color);
+    font-family: Asap, sans-serif;
+    white-space: nowrap;
+}
+
+.score-board {
+    margin: 0 50px;
+    border: 3px solid var(--scoreboard-border-color);
+    border-radius: 4px;
+    text-align: center;
+    width: 200px;
+    color: var(--scoreboard-text-color);
+    font-size: 46px;
+    padding: 15px 20px;
+    font-family: Asap, sans-serif;
+    position: relative;
+}
+
+#user-label {
+    position: absolute;
+    top: 30px;
+    left: -25px;
+    transition: background-color 0.3s ease;
+}
+
+#computer-label {
+    position: absolute;
+    top: 30px;
+    right: -30px;
+    transition: background-color 0.3s ease;
+}

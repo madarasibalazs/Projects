@@ -1,0 +1,8 @@
+
+Possible improvements/features to add:
+- Add powerups like Double points for the next round (Only if you win?)
+- Voice commands
+    Add a feature where players can use voice commands to choose rock, paper, or scissors. This can be done using the Web Speech API.
+    Steps:
+        Use JavaScript’s Speech Recognition API to detect words like “rock,” “paper,” and “scissors.”
+        Allow players to play the game hands-free by enabling voice commands.

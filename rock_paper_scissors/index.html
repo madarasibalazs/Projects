@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Rock Paper Scissors Game</title>
+        <link rel="stylesheet" href="styles.css">
+      <link rel="icon" type="image/x-icon" href="/images/game_icon.png">
+    </head>
+    <body>
+        <header>
+            <h1>Rock Paper Scissors</h1>
+        </header>
+
+        <div id="settings-icon">
+            <img src="images/settings_icon.png" alt="Settings Icon" id="settings-image">
+        </div>
+
+        <div id="settings-modal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Settings</h2>
+                <button id="theme-toggle">Switch to Light Theme</button> <!-- Adjust text dynamically in JS -->
+                <button id="reset-button">Reset Game</button>
+                <button id="mute-toggle">Mute Sounds</button> <!-- Adjust text dynamically in JS -->
+            </div>
+        </div>
+
+        <div class="score-container">
+            <div class="achievements-box">
+                <h2>Achievements</h2>
+                <div class="achievements-list">
+                    <h3>Unlocked Achievements</h3>
+                    <ul id="unlocked-achievements">
+                        <li>None</li>
+                    </ul>
+
+                    <h3>Locked Achievements</h3>
+                    <ul id="locked-achievements">
+                        <li id="achievement-1">Win 5 Games</li>
+                        <li id="achievement-2">Win 10 Games</li>
+                        <li id="achievement-3">3 Winning Streak</li>
+                        <li id="achievement-4">5 Winning Streak</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="winning-streak">Highest Winning Streak: 0</div>
+
+            <div class="score-board">
+                <div id="user-label" class="badge">user</div>
+                <div id="computer-label" class="badge">comp</div>
+                <span id="user-score">0</span>:<span id="computer-score">0</span>
+            </div>
+        </div>
+
+        <div class="result">
+            <p>Make your move to see the result!</p>
+        </div>
+
+        <div class="choices">
+            <div class="choice" id="r">
+                <img src="images/rock.png" alt="Rock">
+            </div>
+            <div class="choice" id="p">
+                <img src="images/paper.png" alt="Paper">
+            </div>
+            <div class="choice" id="s">
+                <img src="images/scissors.png" alt="Scissors">
+            </div>
+        </div>
+
+        <p id="action-message">Make your move.</p>
+
+        <script src="app.js" charset="utf-8"></script>
+    </body>
+</html>
