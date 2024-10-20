@@ -16,14 +16,14 @@ This is a web-based "Rock, Paper, Scissors" game where you can compete against a
 
 ### Installing
 
-* Clone the repository to your local machine:
+* Clone the entire project repository to your local machine:
 ```
 git clone https://github.com/your-username/rock-paper-scissors.git
 ```
 
 * Navigate to the project folder:
 ```
-cd rock-paper-scissors
+cd Projects/weather_project
 ```
 
 * Open the index.html file in any modern web browser to start the game.
