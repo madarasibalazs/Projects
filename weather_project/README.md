@@ -22,9 +22,13 @@ I built this weather application using Tkinter to challenge myself with a more t
 ### Installing
 
 1. **Clone the Repository**:
-   Clone the project repository to your local machine:
+   Clone the entire project repository to your local machine:
 ```
-git clone https://github.com/yourusername/weather-app.git
+git clone https://github.com/madarasibalazs/Projects.git
+```
+ Then navigate to the folder:
+```
+cd Projects/weather_project
 ```
 
 2. **Install Required Libraries**:
