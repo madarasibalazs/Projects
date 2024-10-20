@@ -54,7 +54,7 @@ For common issues, ensure the following:
 * The browser is updated to the latest version.
 * JavaScript is enabled in your browser.
 
-If there is any problem, please create an issue and I will check it out as soon as I can.
+If there are any problems, please create an issue and I will check it out as soon as I can.
 
 ## Authors
 
