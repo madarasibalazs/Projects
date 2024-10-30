@@ -76,7 +76,7 @@ Press CTRL+C to quit
 ## Help
 
 * If there are any problems, please create an issue and I will check it out as soon as I can.
-* There are some environment variables that I have used, such as the secret key and the client key for my application which I cannot upload for privacy reasons.
+* There are some environment variables that I have used, such as the secret key and the client key for my application which I cannot upload for obvious privacy reasons.
 
 ## Authors
 
