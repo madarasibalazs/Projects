@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f0f0f0; text-align: center;
+        }
+        h1 {
+            color: #333; margin-top: 20px;
+        }
+        form {
+            margin-top: 20px; display: flex; flex-direction: column; align-items: center;
+        }
+        label {
+            margin-bottom: 5px;
+        }
+        input, select, button {
+            margin: 5px; padding: 8px; border: 1px solid #ccc; border-radius: 5px; width: 200px; box-sizing: border-box;
+        }
+        button {
+            background-color: #007bff; color: #fff; cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        a {
+            display: block; margin-top: 20px; color: #007bff; text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='final_favicon.ico') }}">
+</head>
+<body>
+    <h1>Spotify Search</h1>
+    <form action="{{ url_for('search') }}" method="POST">
+        <label for="query">Search Query:</label>
+        <input type="text" id="query" name="query" required>
+        <label for="type">Type:</label>
+        <select id="type" name="type" required>
+            <option value="artist">Artist</option>
+            <option value="track">Track</option>
+            <option value="album">Album</option>
+            <option value="playlist">Playlist</option>
+            <option value="show">Show</option>
+            <option value="episode">Episodes</option>
+        </select>
+        <button type="submit">Search</button>
+    </form>
+    <p>The search query means for instance, the name of the chosen type.</p>
+    <h3><a href="{{ url_for('home') }}">Back to Home</a></h3>
+</body>
+</html>
