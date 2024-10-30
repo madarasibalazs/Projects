@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Playlists</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f0f0f0; text-align: center;
+        }
+        h1 {
+            color: #333; margin-top: 20px;
+        }
+        ul {
+            list-style-type: none; padding: 0;
+        }
+        ul li {
+            margin-top: 10px;
+        }
+        img {
+            max-width: 200px; height: auto;
+        }
+        div strong {
+            font-weight: bold;
+        }
+        a {
+            display: block; margin-top: 20px; color: #007bff; text-decoration: none; text-align: center;
+        }
+        .btn {
+            padding: 10px 20px; font-size: 16px; cursor: pointer; text-align: center; text-decoration: none; outline: none;
+            color: #fff; background-color: #4CAF50; border: none; border-radius: 5px; box-shadow: 0 4px #999;
+        }
+        .btn:hover {background-color: #45a049}
+        .btn:active {
+            background-color: #3e8e41; box-shadow: 0 2px #666; transform: translateY(2px);
+        }
+        .btn-success {
+            background-color: #28a745; border-color: #28a745;
+        }
+        .btn-success:hover {
+            background-color: #218838; border-color: #1e7e34;
+        }
+        .btn-success:active {
+            background-color: #1c7430; border-color: #1a6932;
+        }
+        .btn-danger {
+            background-color: #dc3545; border-color: #dc3545;
+        }
+        .btn-danger:hover {
+            background-color: #c82333; border-color: #bd2130;
+        }
+        .btn-danger:active {
+            background-color: #bd2130; border-color: #b21f2d;
+        }
+        .alert {
+            padding: 15px; margin: 20px; border-radius: 5px; color: white;
+        }
+        .alert-success {
+            background-color: #4CAF50;
+        }
+        .alert-error {
+            background-color: #f44336;
+        }
+    </style>
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='final_favicon.ico') }}">
+</head>
+<body>
+    <h1>Your Playlists</h1>
+    <ul>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category }}">{{ message }}</div>
+                {% endfor %}
+                <meta http-equiv="refresh" content="10;url={{ url_for('display_playlists') }}">
+            {% endif %}
+        {% endwith %}
+        {% for item in playlists %}
+            {% if item['images'] %}
+                <br><img src="{{ item['images'][0]['url'] }}" alt="{{ item['name'] }}">
+            {% else %}
+                <p>No available image</p>
+            {% endif %}
+            {% if item['owner']['display_name'] == curr_user %}
+                <div><li><strong>Name:</strong> {{ item['name'] }}</li></div>
+                <div><li><strong>Is it collaborative:</strong> {{ item['collaborative'] }}</li></div>
+                {% if item['description'] %}
+                    <div><li><strong>Description:</strong> {{ item['description'] }}</li></div>
+                {% endif %}
+                <div><li><strong>Is the playlist public:</strong> {{ "Yes" if item['public'] else "No" }}</li></div>
+                <div><li><strong>Total number of tracks:</strong> {{ item['tracks']['total'] }}</li></div>
+                <h3><a href="{{ url_for('display_playlist_tracks', playlist_id=item['id']) }}">See the tracks in the playlist</a></h3>
+                <h3><a href="{{ url_for('change_playlist_details', playlist_id=item['id']) }}">Edit the playlist's details</a></h3>
+                <form action="{{ url_for('add_item_to_playlist') }}" method="POST">
+                    <input type="hidden" name="playlist_id" value="{{ item['id'] }}">
+                    <label><input type="text" name="song_name" placeholder="Enter song name:"></label>
+                    <button type="submit" class="btn btn-success">Add song to playlist</button>
+                </form><br>
+                <form action="{{ url_for('remove_item_from_playlists') }}" method="POST">
+                    <input type="hidden" name="playlist_id" value="{{ item['id'] }}">
+                    <label><input type="text" name="song_name" placeholder="Enter song name to remove"></label>
+                    <button type="submit" class="btn btn-danger">Remove song from playlist</button>
+                </form><br>
+            {% else %}
+                <div><li><strong>Name:</strong> {{ item['name'] }}</li></div>
+                <div><li><strong>Is it collaborative:</strong> {{ item['collaborative'] }}</li></div>
+                {% if item['description'] %}
+                    <div><li><strong>Description:</strong> {{ item['description'] }}</li></div>
+                {% endif %}
+                <div><li><strong>Is the playlist public:</strong> {{ "Yes" if item['public'] else "No" }}</li></div>
+                <div><li><strong>Total number of tracks:</strong> {{ item['tracks']['total'] }}</li></div>
+                <h3><a href="{{ url_for('display_playlist_tracks', playlist_id=item['id']) }}">See the tracks in the playlist</a></h3>
+            {% endif %}
+        {% endfor %}
+        <br><div>Note: There might be some rendering issues because of emojis or special characters.</div>
+        <br><div><strong>Important</strong>: When adding a new song to your playlist, the most likely search result will be added.</div>
+    </ul>
+    <h3><p><a href="{{ url_for('home') }}">Back to Home</a></p></h3>
+</body>
+</html>

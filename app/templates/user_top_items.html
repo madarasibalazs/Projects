@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User's Top Items</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f2f2f2; text-align: center;
+        }
+        h1 {
+            color: #333; margin-top: 20px;
+        }
+        .top-items {
+            max-width: 800px; margin: 20px auto;
+        }
+        .top-item {
+            border: 1px solid #ddd; padding: 15px; border-radius: 8px; margin-bottom: 20px; display: flex; align-items: center;
+            box-shadow: 0 0 8px rgba(0, 0, 0, 0.4); background-color: white;
+        }
+        .top-item img {
+            border-radius: 8px; margin-right: 15px; width: 100px; height: 100px;
+        }
+        .top-item div {
+            flex-grow: 1;
+        }
+        .top-item h3 {
+            margin: 0 0 10px 0;
+        }
+        a {
+            display: block; margin-top: 20px; color: #007bff; text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='final_favicon.ico') }}">
+</head>
+<body>
+    <div class="top-items">
+        <h1>User's Top Tracks</h1>
+        {% for track in items.tracks %}
+        <div class="top-item">
+            {% if track.image_url %}
+                <img src="{{ track.image_url }}" alt="Album Cover">
+            {% endif %}
+            <div>
+                <h3>{{ track.name }}</h3>
+                <p><strong>Album:</strong> {{ track.album }}</p>
+                <p><strong>Artists:</strong> {{ track.artists }}</p>
+            </div>
+        </div>
+        {% endfor %}
+        <h1>User's Top Artists</h1>
+        {% for artist in items.artists %}
+        <div class="top-item">
+            {% if artist.image_url %}
+                <img src="{{ artist.image_url }}" alt="Artist Picture">
+            {% endif %}
+            <div>
+                <h3>{{ artist.name }}</h3>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <h3><a href="{{ url_for('home') }}">Back to Home</a></h3>
+    <h3><a href="{{ url_for('get_current_user') }}">Back to your profile</a></h3>
+</body>
+</html>

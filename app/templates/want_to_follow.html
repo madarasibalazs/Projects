@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f2f2f2; text-align: center;
+        }
+        h1 {
+            color: #333; margin-top: 20px;
+        }
+        ul {
+            list-style-type: none; padding: 0;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        img {
+            width: 200px; border-radius: 5px;
+        }
+        button {
+            margin-top: 10px; padding: 8px 16px; border: none; border-radius: 5px; background-color: #007bff; color: #fff;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        a {
+            display: block; margin-top: 20px; color: #007bff; text-decoration: none; text-align: center;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        div.info {
+            margin-top: 20px; text-align: center; padding-left: 20px;
+        }
+        .alert {
+            padding: 15px; margin: 20px; border-radius: 5px; color: white;
+        }
+        .alert-error {
+            background-color: #f44336;
+        }
+    </style>
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='final_favicon.ico') }}">
+</head>
+<body>
+    <h1>Search Results</h1>
+    <ul>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category }}">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        {% if search_type == 'artist' %}
+            <li><strong>Most likely:</strong><br>
+                {% if items[1]['images'] %}
+                    <img src="{{ items[1]['images'][-1]['url'] }}" alt="{{ items[1]['name'] }}">
+                {% else %}
+                    <p>No images for the artist {{ items[1]['name'] }}</p>
+                {% endif %}
+                <div><strong>Artist name:</strong> {{ items[1]['name'] }}</div>
+                <div><strong>Followers:</strong> {{ items[1]['followers']['total'] }}</div>
+                <div><strong>Popularity:</strong> {{ items[1]['popularity'] }}</div>
+                {% if items[1]['genres'] %}
+                    <div><strong>Genres:</strong></div>
+                    <ul>
+                        {% for genre in items[1]['genres'] %}
+                            <li>{{ genre }}</li>
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    <div><strong>No defined genres</strong></div>
+                {% endif %}
+                <form action="{{ url_for('follow_artist_action', artist_id=items[1]['id']) }}" method="POST">
+                    <button type="submit">Follow</button>
+                </form>
+            </li><br>
+            <li><strong>Other suggestions*:</strong></li>
+            {% for item in items[2:] %}
+                <li>
+                    {% if item['images'] %}
+                        <img src="{{ item['images'][-1]['url'] }}" alt="{{ item['name'] }}">
+                    {% else %}
+                        <li>No image available for {{ item['name'] }}</li>
+                    {% endif %}
+                    <div><strong>Artist name:</strong> {{ item['name'] }}</div>
+                    <div><strong>Popularity:</strong> {{ item['popularity'] }}</div>
+                    <div><strong>Followers:</strong> {{ item['followers']['total'] }}</div>
+                    {% if item['genres'] %}
+                        <div><strong>Genres:</strong></div>
+                        <ul>
+                            {% for genre in item['genres'] %}
+                                {{ genre }},
+                            {% endfor %}
+                        </ul>
+                    {% else %}
+                        <div><strong>No defined genres</strong></div>
+                    {% endif %}
+                    <form action="{{ url_for('follow_artist_action', artist_id=item['id']) }}" method="POST">
+                        <button type="submit">Follow</button>
+                    </form><br>
+                </li>
+            {% endfor %}
+            <div class="info"><p>*Other suggestions are primarily based on number of followers, similar genres, countries and other factors</p></div>
+        {% endif %}
+    </ul>
+    <h3><a href="{{ url_for('follow_artists') }}">Back to Search</a></h3>
+    <h3><a href="{{ url_for('home') }}">Back to Home</a></h3>
+</body>
+</html>

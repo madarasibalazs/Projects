@@ -1,0 +1,7 @@
+spotipy
+flask
+python-dotenv
+config
+pytest
+pytest-mock
+pytest-logging

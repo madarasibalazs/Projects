@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Statistics</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f0f0f0;
+        }
+        h1 {
+            color: #333; text-align: center;
+        }
+        p {
+            margin: 10px; padding: 5px; background-color: #fff; border-radius: 5px; box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+        }
+        a {
+            display: block; margin-top: 20px; color: #007bff; text-decoration: none; text-align: center;
+        }
+        .note {
+        font-style: italic; font-size: 0.9em; color: #888; display: block; margin-top: 0.5em; text-align: right;
+        }
+    </style>
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='final_favicon.ico') }}">
+</head>
+<body>
+    <h1>User Statistics</h1>
+    <p><strong>Number of users:</strong> {{ total_users }}</p>
+    <p><strong>Number of Premium Users:</strong> {{ premium_users }}</p>
+    <p><strong>Percentage of Premium Users:</strong> {{ premium_percentage }}%</p>
+    <p><strong>Average Number of Followers:</strong> {{ avg_followers }}</p>
+    <p><strong>Country with Most Logins:</strong> {{ most_common_country }}</p>
+    <p><strong>The number of users who logged in this week:</strong> {{ weekly_logins }}</p>
+    <p><strong>The number of users who logged in this month:</strong> {{ monthly_logins }}</p>
+    <p><strong>*Inactive users:</strong> {{ inactive_users_count }}</p><span class="note">*Users who have not logged-in in the last 10 days</span>
+    <h3><a href="{{ url_for('home') }}">Back to Home</a></h3>
+</body>
+</html>
