@@ -23,7 +23,11 @@ My project is about making the most out of the Spotify API. Using my flask appli
 ```
 git clone https://github.com/your-username/rock-paper-scissors.git
 ```
-* After cloning, you have to install the dependencies:
+* After cloning, enter the folder using the following command:
+```
+cd Projects/weather_project
+```
+* Then, you can install the requirements:
 ```
 pip install -r requirements.txt
 ```
