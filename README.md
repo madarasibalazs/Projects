@@ -4,8 +4,6 @@
 
 I love listening to music, so I wanted to make a programming project that is connected to my passion, so I started making a simple version of Spotify.
 
-**Submission**: I would like to say, that since there was no assignment in Teams, I did not send the link to my repository to either of the professors. I have added you as collaborators, so you can see and access everything. You can also see my last commit, which is before the deadline (2024.06.23. 23:00)
-
 ## Description
 
 My project is about making the most out of the Spotify API. Using my flask application, people can log in and use the functionalities that my app offers. These are very similar functionalities to the ones that Spotify has in its system, but this is not suprising as I am using their API along with the spotipy library.
@@ -49,11 +47,7 @@ Press CTRL+C to quit
 * **BEFORE** logging into my account, please make sure that the "Remember me" button above login button is **OFF**. This is important, because if you leave that option on, it will not clear the session properly (API constraints, I could not do anything about it) and can cause problems.
 * Use one of the login information I provided, because the application I am making is in "Development Mode", therefore only those users can log into who I added to my app on the Developer Dashboard. 
 
-## The login data:
-- email: m.balazs0813@gmail.com
-- password: Spotifyplsletmein13
-
-If you want to try my application with a **free account**, I also made a test account:
+If you want to try my application with a **free account**, I here is a test account:
 - email: madarasi.balazs04@gmail.com
 - password: Testpassword123
 
