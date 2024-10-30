@@ -4,27 +4,29 @@
 
 I love listening to music, so I wanted to make a programming project that is connected to my passion, so I started making a simple version of Spotify.
 
-**Submission**: I would like to say, that since there was no assignment in Teams, I did not send the link to my repository to either of the professors. I have added you as collaborators, so you can see and access everything. You can also see my last commit, which is before the deadline (2024.06.23. 23:00)
-
 ## Description
 
 My project is about making the most out of the Spotify API. Using my flask application, people can log in and use the functionalities that my app offers. These are very similar functionalities to the ones that Spotify has in its system, but this is not suprising as I am using their API along with the spotipy library.
 
 ### Dependencies
 
-* All of the necessary libraries are in the requirements.txt file. After cloning the repository, to install the dependencies, run the following command in PyCharm's (or some other IDE's) terminal:
-```
-pip install -r requirements.txt
-```
+* All of the necessary libraries are in the requirements.txt file. After cloning the repository, to install the dependencies (see below):
 * There is no OS requirement
 * I use Pyton 3.9, but should work on older/newer python versions as well
-* The documentations can be found here:
+* The official documentations can be found here:
   - Spotify API: https://developer.spotify.com/documentation/web-api
   - Spotipy: https://spotipy.readthedocs.io/en/2.24.0/
 
 ### Installing
 
-* Simply cloning the whole repository and installing the necessary requirements should be enough to run my application
+* Simply cloning the whole repository and installing the necessary requirements should be enough to run my application. For cloning, use the following command:
+```
+git clone https://github.com/your-username/rock-paper-scissors.git
+```
+* After cloning, you have to install the dependencies:
+```
+pip install -r requirements.txt
+```
 * No modification is needed to the files, everything is structured.
 
 ## Getting Started
@@ -45,35 +47,25 @@ Press CTRL+C to quit
  * Debugger is active!
  * Debugger PIN: 124-147-038
 ```
-* Since you are not logged into any Spotify account at the moment, the app will redirect you to Spotify's official login page. For the duration of the project, I will allow you use my Premium Spotify Account, so you can properly use the functionalities (some functionalites might be limited in a free Spotify account just like in the Spotify application). After I have received feedback from the project I will change my password for privacy reasons. (See more about this at the "Help" section, please read that before starting to look around in my project)
-* **BEFORE** logging into my account, please make sure that the "Remember me" button above login button is **OFF**. This is important, because if you leave that option on, it will not clear the session properly (API constraints, I could not do anything about it) and can cause problems.
-* Use one of the login information I provided, because the application I am making is in "Development Mode", therefore only those users can log into who I added to my app on the Developer Dashboard. 
+* Since you are not logged into any Spotify account at the moment, the app will redirect you to Spotify's official login page.
+* **BEFORE** logging into the free account provided below, please make sure that the "Remember me" button above login button is **OFF**. This is important, because if you leave that option on, it will not clear the session properly (API constraints, I could not do anything about it) and can cause problems.
+* Use the login information I provided, because the application I am making is in "Development Mode", therefore only those users can log into who I added to my app on the Spotify Developer Dashboard.
+* The Spotify account I have provided below is a free one, which I have been not using, therefore the UI will be simple and some of the information will not appear, as the account has not been used. If you would like to use you own account, please open an issue where you write me your email and I will add you to the allowed users.
 
-## The login data:
-- email: m.balazs0813@gmail.com
-- password: Spotifyplsletmein13
-
-If you want to try my application with a **free account**, I also made a test account:
+## The login data for the free account:
 - email: madarasi.balazs04@gmail.com
 - password: Testpassword123
 
 ## Functionalities
-
-- To see what I was planning to implement, please see my proposal, which was submitted in a Teams assignment, but I will also make a small description down below.
-- I have implemented almost all of the features that I wrote in my proposal. There are 2 features that I could not:
-  1. "Deleting playlists" feature and the reason is that there is no endpoint for it using the API.
-  2. "A method where you can get the users followed artists, and you could also follow and unfollow users" feature and the reason is that it is not user-friendly:
-
-It is not possible to search users based on their usernames, therefore I could not implement the part where the user can look up other users and follow them or get the searched users' followed artists.  Searching other users is only possible with the user's ID, which is either generated by Spotify and is not something you can guess, or it is the users' display name. The problem is, that it varies and there no way to determine that the user I want to look up (let's say my friend) has his/her display name as his ID or a generated one. To see the IDs, start my application and click on the "Check log-in times and other information" part, which displays the IDs as well
 
 **The exact functionalities and where to find them:**
 - **Database part**: "Check log-in times and other information" and "Look at statistics about my app's users" links on the homepage. In the first link, you can see what is stored in my database.
   - *Note:* I wanted to add more to my database part, but in the Spotify API documentation, in most endpoints it is said that "Spotify content may not be downloaded". Therefore, I could not extend my database.
 - **Networking part**: The whole communication process with the Spotify API. Ensuring that the requests are correctly sent, getting the data and extracting the data that is presentable and useful.
 - **Creating playlists**: Create a new playlist link on the homepage.
-- **Editing playlists**: "See your playlists" links, where you can view all of your playlists and edit the ones that you "own" (made). This incluced adding and deleting tracks, editing thr title, description and the public status of the playlist.
+- **Editing playlists**: "See your playlists" links, where you can view all of your playlists and edit the ones that you "own" (made). This incluced adding and deleting tracks, editing the title, description and the public status of the playlist.
   - *Note:* When editing a playlist, it might take some time for the information to update in my application. I do not know exactly why, but e.g., if you update the description of the playlist it could take up to 2-3 minutes for the description to update. 
-- **Getting another user's public playlist**s: Since there is no (easy) way to search for users, I made it possible for the users to search for playlists, look at the tracks in them and follow those playlists, which will be in their library along with their own playlists.
+- **Getting another user's public playlists**: Users can search for playlists, look at the tracks in them and follow those playlists, which will be in their library along with their own playlists.
 - **Get Spotify catalog information about albums, artists, playlists, tracks, shows or episodes**: "Search" link in the homepage.
 - **Display a user’s profile information**: "View your profile" link. This displays general information about your profile. This is also the way to see your top items.
 - **Get the top items (artists and tracks) of the user**: "View your profile" link and then "View your top items" link. This will display your top 10 tracks and artists.
@@ -83,27 +75,8 @@ It is not possible to search users based on their usernames, therefore I could n
 
 ## Help
 
-**If you have any questions, please contact me on Teams or through Email, or you can even create an issue and tag me.**
-
-Some things I would like to ask you as I am "lending" you my premium Spotify account:
-- Do not modify my current playlists. You can view the tracks, but please do not add/remove songs, change the title, description or public status of it.
-  - To try out those features, please make new playlists
-- Do not play any music from my account
-- Do not unfollow artists. You can follow new ones if you would like. (I might unfollow those later)
-- If you want to "mess around" freely please use the test account that I made.
-The reason I am giving you access to my private Spotify account is that for the free test account you cannot see every detail. For instance, if you want to check the user's top tracks and artists, the free account will have nothing there as I have not used that account and created it just for testing.
-
-* I know that my tests are not the best structured, as there are duplicates and similar lines of code, but because of the time constraints I did not have the time to move them to a different folder and import them after cleaning up the code. I will also try to do that over the summer.
-
-## Version History
-* 0.1
-    * Initial Release
-    * Built the project from the ground up, see [commit change]()
-    * I will try to continue this project over the summer and do the following things:
-      * Fine-tune the existing functionalities, as there can be anomalies and unexpected things from the user's perspective
-      * Improve the front-end, maybe even include some JS
-      * Add more functionalities using the API
-      * Clean up the code and collect the fixtures to a different file
+* If there are any problems, please create an issue and I will check it out as soon as I can.
+* There are some environment variables that I have used, such as the secret key and the client key for my application which I cannot upload for privacy reasons.
 
 ## Authors
 
