@@ -74,11 +74,12 @@ python main.py
 If you encounter any issues, check the following common solutions:
 1. **API Key Issues**:
 Make sure your `api_key.txt` file is correctly configured and that your OpenWeatherMap API key is valid.
-I would also note, that it takes a couple of hours for OpenWeatherMap to generate and activate your API key. Make sure you wait for some time before trying out the project.
+I would note, that it takes a couple of hours for OpenWeatherMap to generate and activate your API key. Make sure you wait for some time before trying out the project.
 
-3. **Missing Dependencies**:
+2. **Missing Dependencies**:
 If you get errors related to missing libraries, ensure all dependencies are installed. (See more at the Dependencies part)
 
+I want to also add, that I know the images should not be uploaded, but initially I planned it to be a local project and did not use the links of the images. This way it takes up more space in the Github repository, however it would take a lot of time to redo this part. 
 If there are any problems, please create an issue and I will check it out as soon as I can.
 
 ## Authors
